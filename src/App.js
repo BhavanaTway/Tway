@@ -1,6 +1,6 @@
 
 
-// 9.CARD WITH THE CARD HOVER
+// CARD WITH THE CARD HOVER
 
 import React, { useEffect } from "react";
 
