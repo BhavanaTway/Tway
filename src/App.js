@@ -1,4 +1,4 @@
- //3. Image content and navbar
+ // Image content and navbar
          import React, { useState } from 'react';
 
          const ResponsiveMenu = () => {
