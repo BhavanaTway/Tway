@@ -1,4 +1,4 @@
-//1. Responsive page
+// Responsive page
 import React from 'react';
 const App = () => {
   return (
