@@ -1,112 +1,51 @@
-//1. Responsive page
-// import React from 'react';
-// const App = () => {
-//   return (
-//     <div className="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
-//       <h1 className="text-3xl font-bold mb-8">Responsive Page Example</h1>
-//       <div className="max-w-lg w-full bg-white shadow-md p-8 rounded-lg">
-//         <p className="text-lg mb-4">
-//           This is a responsive page created with React and Tailwind CSS.
-//         </p>
-//         <p className="text-lg">
-//           Resize your browser window to see the layout adjust accordingly.
-//         </p>
-//       </div>
-//     </div>
-//   );
-// };
+//2. content text without navbar
+ import React from 'react';
+ import './App.css';
 
-// export default App;
+ function App() {
+     return (
+      <><header>
 
+         <nav className="w-full h-14  flex justify-between px-4 items-center text bg-blend-color-block md:px-4">
+           <div className="text-2xl text-indigo-700 font-bold ">Skills</div>
+           <ul className="md:flex  font-semibold">
+             <li className="mx-[10px]">Home</li>
+             <li className="mx-[10px]">Contact Us</li>
+             <li className="mx-[10px]">About Us</li>
+             <li className="mx-[10px]">Help</li>
+           </ul>
+           <div className="hidden md:block px-2 py-2 bg-indigo-700 text-white rounded font-bold cursor-pointer ">Login/Signup</div>
+           <div className="md:hidden">
+             <a className="text-4xl" href="#">&#8801;</a>
+           </div>
+         </nav>
+       </header>
+       <div className='p-5 grid lg:grid-flow-col'>
 
-// 10 Dispaying the paragraph when the click on the button 
+            <div>
+            <img 
+             src="https://www.easel.ly/blog/wp-content/uploads/2019/05/People-following-directions-with-text-and-illustrations-do-323-better-than-those-following-directions-without-illustrations.-1.png" alt='kkk'
+             className='w-[100%] h-[30rem]'
+             />
+            </div>
+            
+             <div className='sm:w-full lg:mt-8   space-y-3 tracking-wider   text-align: left; text-[#656565] pl-4'>
+                 There is no two ways about it —  thoughtful content and beautiful visuals can help make your story, message, or 
+                     content into an engaging piece that gets the attention of your audience.
+                    
+                     While thoughtful, text-only content has its pros in communicating with impact, there’s been a significant shift in recent years favouring 
+                     a combination of text and visuals — eye-catching infographics, beautifully crafted animations, clever gifs, and stunning Powerpoint presentations.
+                  
+                     </div>
+          </div>
 
-// import React, { useState } from 'react';
+         </>
+           ) ;
 
-// const ButtonComponent = () => {
-//   const [displayText, setDisplayText] = useState('');
-
-//   const handleButtonClick = (text) => {
-//     setDisplayText(text);
-//   };
-
-//   return (
-//     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 justify-items-center h-screen bg-gray-400 ">
-//       <button
-//         className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded self-start"
-//         onClick={() => handleButtonClick(<div className='sm:w-full tracking-wider  text-[#151414] pl-48'>
-//           Last month we introduced the new AI-powered Bing and Microsoft Edge, your copilot for the web – delivering better search, complete answers, a new chat experience and the ability to create content. Already, we have seen that chat is reinventing how people search with more than 100 million chats to date.</div>)}
-//       >
-//         Button 1
-//       </button>
-//       <button
-//         className="bg-green-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded self-start "
-//         onClick={() => handleButtonClick(<div className='sm:w-full  tracking-wider  text-[#1a1919] pl-48'>
-//           Through these simple steps, Bing Image Creator allows anyone to transform ideas into visual pieces. It stands as a testament to the seamless integration of AI into creative expression, enabling the production of stunning imagery with just a few keystrokes. </div>)}
-//       >
-//         Button 2
-//       </button>
-//       <button
-//         className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded self-start"
-//         onClick={() => handleButtonClick(<div className='sm:w-full tracking-wider  text-[#181717] pl-48'>
-//           In today’s digital age, visuals are more important than ever. Whether you are a blogger, marketer, or graphic designer, creating high-quality images is essential for grabbing attention and conveying your message effectively.</div>)}
-//       >
-//         Button 3
-//       </button>
-//       <div className="col-span-3 mt-4">
-//         <p>{displayText}</p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ButtonComponent;
-
-
-// Import necessary libraries
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-// Define your components
-const Home = () => {
-  return (
-    <div className="bg-gray-200 h-screen flex justify-center items-center">
-      <h1 className="text-3xl font-bold">Home Page</h1>
-    </div>
-  );
-};
-
-const About = () => {
-  return (
-    <div className="bg-gray-200 h-screen flex justify-center items-center">
-      <h1 className="text-3xl font-bold">About Page</h1>
-    </div>
-  );
-};
-
-const Contact = () => {
-  return (
-    <div className="bg-gray-200 h-screen flex justify-center items-center">
-      <h1 className="text-3xl font-bold">Contact Page</h1>
-    </div>
-  );
-};
-
-// Define your routing component
-const App = () => {
-  return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} />
-      </Switch>
-    </Router>
-  );
-};
-
-// Render your App component
+           }
 export default App;
+
+
 
 
 
