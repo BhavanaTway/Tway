@@ -1,4 +1,4 @@
-//  5.Number count
+//  Number count
 import React, { useState } from "react";
 
 const App = () => {
