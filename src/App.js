@@ -1,112 +1,159 @@
-//1. Responsive page
-// import React from 'react';
-// const App = () => {
-//   return (
-//     <div className="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
-//       <h1 className="text-3xl font-bold mb-8">Responsive Page Example</h1>
-//       <div className="max-w-lg w-full bg-white shadow-md p-8 rounded-lg">
-//         <p className="text-lg mb-4">
-//           This is a responsive page created with React and Tailwind CSS.
-//         </p>
-//         <p className="text-lg">
-//           Resize your browser window to see the layout adjust accordingly.
-//         </p>
-//       </div>
-//     </div>
-//   );
-// };
+ //3. Image content and navbar
+         import React, { useState } from 'react';
 
-// export default App;
+         const ResponsiveMenu = () => {
+           const [isOpen, setIsOpen] = useState(false);
+         
+           const toggleMenu = () => {
+             setIsOpen(!isOpen);
+           };
+         
+           return (
+             <><div className="bg-gray-800">
+               <div className="max-w-7xl mx-auto px-4">
+                 <div className="flex justify-between items-center py-4">
+                   <div className="flex items-center">
+                     <h1 className="text-white text-lg font-bold">Logo</h1>
+                   </div>
+                   <div className="lg:hidden">
+                     <button
+                       onClick={toggleMenu}
+                       className="text-white focus:outline-none focus:text-white"
+                     >
+                       <svg
+                         className="h-6 w-6"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke="currentColor"
+                       >
+                         {isOpen ? (
+                           <path
+                             strokeLinecap="round"
+                             strokeLinejoin="round"
+                             strokeWidth="2"
+                             d="M6 18L18 6M6 6l12 12" />
+                         ) : (
+                           <path
+                             strokeLinecap="round"
+                             strokeLinejoin="round"
+                             strokeWidth="2"
+                             d="M4 6h16M4 12h16M4 18h16" />
+                         )}
+                       </svg>
+                     </button>
+                   </div>
+                   <div className="hidden lg:flex lg:items-center lg:w-auto">
+                     <nav>
+                       <ul className="flex items-center space-x-4">
+                         <li>
+                           <a
+                             href="#"
+                             className="text-white hover:text-gray-300 transition duration-300"
+                           >
+                             Home
+                           </a>
+                         </li>
+                         <li>
+                           <a
+                             href="#"
+                             className="text-white hover:text-gray-300 transition duration-300"
+                           >
+                             About
+                           </a>
+                         </li>
+                         <li>
+                           <a
+                             href="#"
+                             className="text-white hover:text-gray-300 transition duration-300"
+                           >
+                             Services
+                           </a>
+                         </li>
+                         <li>
+                           <a
+                             href="#"
+                             className="text-white hover:text-gray-300 transition duration-300"
+                           >
+                             Contact
+                           </a>
+                         </li>
+                       </ul>
+                     </nav>
+                   </div>
+                 </div>
+               </div>
+         
+               {isOpen && (
+                 <div className="lg:hidden">
+                   <nav>
+                     <ul className="flex flex-col items-center">
+                       <li>
+                         <a
+                           href="#"
+                           className="text-white hover:text-gray-300 py-2"
+                         >
+                           Home
+                         </a>
+                       </li>
+                       <li>
+                         <a
+                           href="#"
+                           className="text-white hover:text-gray-300 py-2"
+                         >
+                           About
+                         </a>
+                       </li>
+                       <li>
+                         <a
+                           href="#"
+                           className="text-white hover:text-gray-300 py-2"
+                         >
+                           Services
+                         </a>
+                       </li>
+                       <li>
+                         <a
+                           href="#"
+                           className="text-white hover:text-gray-300 py-2"
+                         >
+                           Contact
+                         </a>
+                       </li>
+                     </ul>
+                   </nav>
+                 </div>
+               )}
+             </div>
+             <div className='p-5 grid lg:grid-flow-col'>
 
+            <div>
+              
+              <img 
+              src="https://www.easel.ly/blog/wp-content/uploads/2019/05/People-following-directions-with-text-and-illustrations-do-323-better-than-those-following-directions-without-illustrations.-1.png" alt='kkk'
+              className='w-[100%] h-[30rem]'
+              />
+             </div>
+            
+              <div className='sm:w-full lg:mt-8 text-left  space-y-3 tracking-wider  text-[#656565] pl-4'>
+                  <p>There’s no two ways about it —  thoughtful content and beautiful visuals can help make your story, message, or 
+                      content into an engaging piece that gets the attention of your audience.</p>
+                      <p>
+                      While thoughtful, text-only content has its pros in communicating with impact, there’s been a significant shift in recent years favouring 
+                      a combination of text and visuals — eye-catching infographics, beautifully crafted animations, clever gifs, and stunning Powerpoint presentations.
+                      </p>
+                      </div>
+           </div>
 
-// 10 Dispaying the paragraph when the click on the button 
+           
+               </>
+         
+             
+           );
+         };
+         
+         export default ResponsiveMenu;
+         
 
-// import React, { useState } from 'react';
-
-// const ButtonComponent = () => {
-//   const [displayText, setDisplayText] = useState('');
-
-//   const handleButtonClick = (text) => {
-//     setDisplayText(text);
-//   };
-
-//   return (
-//     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 justify-items-center h-screen bg-gray-400 ">
-//       <button
-//         className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded self-start"
-//         onClick={() => handleButtonClick(<div className='sm:w-full tracking-wider  text-[#151414] pl-48'>
-//           Last month we introduced the new AI-powered Bing and Microsoft Edge, your copilot for the web – delivering better search, complete answers, a new chat experience and the ability to create content. Already, we have seen that chat is reinventing how people search with more than 100 million chats to date.</div>)}
-//       >
-//         Button 1
-//       </button>
-//       <button
-//         className="bg-green-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded self-start "
-//         onClick={() => handleButtonClick(<div className='sm:w-full  tracking-wider  text-[#1a1919] pl-48'>
-//           Through these simple steps, Bing Image Creator allows anyone to transform ideas into visual pieces. It stands as a testament to the seamless integration of AI into creative expression, enabling the production of stunning imagery with just a few keystrokes. </div>)}
-//       >
-//         Button 2
-//       </button>
-//       <button
-//         className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded self-start"
-//         onClick={() => handleButtonClick(<div className='sm:w-full tracking-wider  text-[#181717] pl-48'>
-//           In today’s digital age, visuals are more important than ever. Whether you are a blogger, marketer, or graphic designer, creating high-quality images is essential for grabbing attention and conveying your message effectively.</div>)}
-//       >
-//         Button 3
-//       </button>
-//       <div className="col-span-3 mt-4">
-//         <p>{displayText}</p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ButtonComponent;
-
-
-// Import necessary libraries
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-// Define your components
-const Home = () => {
-  return (
-    <div className="bg-gray-200 h-screen flex justify-center items-center">
-      <h1 className="text-3xl font-bold">Home Page</h1>
-    </div>
-  );
-};
-
-const About = () => {
-  return (
-    <div className="bg-gray-200 h-screen flex justify-center items-center">
-      <h1 className="text-3xl font-bold">About Page</h1>
-    </div>
-  );
-};
-
-const Contact = () => {
-  return (
-    <div className="bg-gray-200 h-screen flex justify-center items-center">
-      <h1 className="text-3xl font-bold">Contact Page</h1>
-    </div>
-  );
-};
-
-// Define your routing component
-const App = () => {
-  return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} />
-      </Switch>
-    </Router>
-  );
-};
-
-// Render your App component
-export default App;
 
 
 
