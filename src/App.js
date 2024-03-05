@@ -1,4 +1,4 @@
-//2. content text without navbar
+// content text without navbar
  import React from 'react';
  import './App.css';
 
