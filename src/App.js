@@ -1,4 +1,4 @@
-// 4. Image slides
+// Image slides
    import React, { useState } from 'react';
    import './App.css';
 
