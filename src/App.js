@@ -1,4 +1,4 @@
-// 10 Dispaying the paragraph when the click on the button 
+//  Dispaying the paragraph when the click on the button 
 
 import React, { useState } from 'react';
 
