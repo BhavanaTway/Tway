@@ -1,33 +1,47 @@
 
-// Routing concept
-import React from 'react'
-import {BrowserRouter,Routes,Route, Link} from 'react-router-dom'
-import Home from './pages/Home.js'
-import Contact from './pages/contact.js'
-import Services from './pages/Service.js'
 
-const App = () => {
+// State and Props 
+
+import React, { useState } from "react";
+const ParentComponent = () => {
+  const [data, setData] = useState("");
+
+  const updateData = (newData) => {
+    setData(newData);
+  };
+
   return (
-    <div>
-      <BrowserRouter>
-      <h1>This is my pages</h1>
-      <div className='flex justify-start gap-12 text-center pl-12'>
-        <Link to="/">Home</Link>&nbsp;
-        <Link to="/contact">Contact</Link>&nbsp;
-        <Link to="/services">Services</Link>
-
-      </div>
-      <Routes>
-        <Route path='/' element={<Home/>}></Route>
-         <Route path='/contact' element={<Contact/>}></Route>
-        <Route path='/Services' element={<Services/>}></Route>
-      </Routes>
-      </BrowserRouter>
+    <div className="container mx-auto">
+      <h1 className="text-2xl font-bold mb-4">Parent Component</h1>
+      <ChildComponent data={data} updateData={updateData} />
     </div>
-  )
-}
+  );
+};
 
-export default App;
+const ChildComponent = ({ data, updateData }) => {
+  const handleClick = () => {
+    updateData("New Data");
+  };
+
+  return (
+    <div className="border border-gray-300 p-4 rounded-md mb-4">
+      <h2 className="text-lg font-semibold mb-2">Child Component</h2>
+      <p>Data from parent: {data}</p>
+      <button
+        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+        onClick={handleClick}
+      >
+        Update Data
+      </button>
+    </div>
+  );
+};
+
+export default ParentComponent;
+
+
+
+
 
 
 
