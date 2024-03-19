@@ -1,5 +1,4 @@
-
-//  Bg color changes 
+// full screen colors
 import React, { useState } from 'react';
 
 const Header = ({ onThemeChange, onClearData }) => {
@@ -40,38 +39,38 @@ const BoardManager = () => {
   };
 
   return (
-    <div className={`container mx-auto p-4 ${themes[themeIndex]}`}>
+    <div className={`min-h-screen ${themes[themeIndex]}`}>
       <Header onThemeChange={handleThemeChange} onClearData={handleClearData}  />
 
       {/* Add board input and button */}
-      <div className="mt-4">
-        <input
-          type="text"
-          placeholder="Enter Board Name"
-          value={boardName}
-          onChange={(e) => setBoardName(e.target.value)}
-          className="border border-gray-300 rounded px-3 py-1 mr-2"
-        />
-        <button onClick={handleAddBoard} className="bg-blue-500 text-white px-4 py-2 rounded mr-2">Add Board</button>
-      </div>
+      <div className="container mx-auto p-4">
+        <div className="mt-4">
+          <input
+            type="text"
+            placeholder="Enter Board Name"
+            value={boardName}
+            onChange={(e) => setBoardName(e.target.value)}
+            className="border border-gray-300 rounded px-3 py-1 mr-2"
+          />
+          <button onClick={handleAddBoard} className="bg-blue-500 text-white px-4 py-2 rounded mr-2">Add Board</button>
+        </div>
 
-      {/* Display the list of boards */}
-      <div className="mt-4">
-        <h2 className="text-lg font-semibold mb-2">Boards:</h2>
-        <ul>
-          {data.map((board, index) => (
-            <li key={index} className="mb-2" style={{ backgroundImage: board.backgroundImage }}>
-              {board.name}
-            </li>
-          ))}
-        </ul>
+        {/* Display the list of boards */}
+        <div className="mt-4">
+          <h2 className="text-lg font-semibold mb-2">Boards:</h2>
+          <ul>
+            {data.map((board, index) => (
+              <li key={index} className="mb-2" style={{ backgroundImage: board.backgroundImage }}>
+                {board.name}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );
 };
 
 export default BoardManager;
-
-
 
 
