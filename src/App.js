@@ -1,4 +1,5 @@
-// Add board enter board name
+
+//  Bg color changes 
 import React, { useState } from 'react';
 
 const Header = ({ onThemeChange, onClearData }) => {
@@ -16,8 +17,10 @@ const Header = ({ onThemeChange, onClearData }) => {
 
 const BoardManager = () => {
   const [data, setData] = useState([]);
-  const [theme, setTheme] = useState('light');
+  const [themeIndex, setThemeIndex] = useState(0); // Keep track of the current theme index
   const [boardName, setBoardName] = useState('');
+
+  const themes = ["bg-pink-300", "bg-yellow-300", "bg-green-300", "bg-purple-300", "bg-red-500"]; // Define different background colors
 
   const handleClearData = () => {
     setData([]);
@@ -32,11 +35,12 @@ const BoardManager = () => {
   };
 
   const handleThemeChange = () => {
-    setTheme(theme === '' ? '' : '');
+    // Increment the theme index or reset to 0 if it reaches the end
+    setThemeIndex((themeIndex + 1) % themes.length);
   };
 
   return (
-    <div className="container mx-auto p-4">
+    <div className={`container mx-auto p-4 ${themes[themeIndex]}`}>
       <Header onThemeChange={handleThemeChange} onClearData={handleClearData}  />
 
       {/* Add board input and button */}
@@ -67,7 +71,6 @@ const BoardManager = () => {
 };
 
 export default BoardManager;
-
 
 
 
