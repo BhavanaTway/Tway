@@ -1,4 +1,4 @@
-// Add board enter board name
+// Color change
 import React, { useState } from 'react';
 
 const Header = ({ onThemeChange, onClearData }) => {
@@ -25,19 +25,19 @@ const BoardManager = () => {
 
   const handleAddBoard = () => {
     if (boardName.trim() !== '') {
-      const newBoard = { name: boardName.trim(), backgroundImage: '' };
+      const newBoard = { name: boardName.trim(), backgroundImage: 'https://techcrunch.com/wp-content/uploads/2023/02/chatgpt-bing.jpg?resize=1200,727' };
       setData([...data, newBoard]);
       setBoardName('');
     }
   };
 
   const handleThemeChange = () => {
-    setTheme(theme === '' ? '' : '');
+    setTheme(theme === 'light' ? 'dark' : 'light' );
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <Header onThemeChange={handleThemeChange} onClearData={handleClearData}  />
+    <div className={`container mx-auto p-4 ${theme === 'dark'? 'bg-gray-500 text-black' : ''}`}>
+      <Header onThemeChange={handleThemeChange} onClearData={handleClearData} />
 
       {/* Add board input and button */}
       <div className="mt-4">
@@ -56,7 +56,7 @@ const BoardManager = () => {
         <h2 className="text-lg font-semibold mb-2">Boards:</h2>
         <ul>
           {data.map((board, index) => (
-            <li key={index} className="mb-2" style={{ backgroundImage: board.backgroundImage }}>
+            <li key={index} className="mb-2" style={{ backgroundImage: '' ? 'https://techcrunch.com/wp-content/uploads/2023/02/chatgpt-bing.jpg?resize=1200,727' : 'https://www.androidauthority.com/wp-content/uploads/2023/03/bing-image-creator-ai-creature-zeros-ones-scaled.jpg' }}>
               {board.name}
             </li>
           ))}
@@ -71,4 +71,14 @@ export default BoardManager;
 
 
 
+
+
+
+
+
+
+
+
+
+    
 
