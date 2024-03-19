@@ -1,46 +1,72 @@
+// Add board enter board name
+import React, { useState } from 'react';
 
+const Header = ({ onThemeChange, onClearData }) => {
 
-// State and Props 
+  return (
+    <header className="bg-blue-300 text-black py-4 px-6 flex justify-between items-center">
+      <h1 className="text-2xl font-bold">Board Manager</h1>
+      <div className="flex items-center">
+        <button onClick={onClearData} className="bg-red-500 text-white px-4 py-2 rounded mr-2">Clear Data</button>
+        <button onClick={onThemeChange} className="bg-green-500 text-white px-4 py-2 rounded">Change Theme</button>
+      </div>
+    </header>
+  );
+};
 
-import React, { useState } from "react";
-const ParentComponent = () => {
-  const [data, setData] = useState("");
+const BoardManager = () => {
+  const [data, setData] = useState([]);
+  const [theme, setTheme] = useState('light');
+  const [boardName, setBoardName] = useState('');
 
-  const updateData = (newData) => {
-    setData(newData);
+  const handleClearData = () => {
+    setData([]);
+  };
+
+  const handleAddBoard = () => {
+    if (boardName.trim() !== '') {
+      const newBoard = { name: boardName.trim(), backgroundImage: '' };
+      setData([...data, newBoard]);
+      setBoardName('');
+    }
+  };
+
+  const handleThemeChange = () => {
+    setTheme(theme === '' ? '' : '');
   };
 
   return (
-    <div className="container mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Parent Component</h1>
-      <ChildComponent data={data} updateData={updateData} />
+    <div className="container mx-auto p-4">
+      <Header onThemeChange={handleThemeChange} onClearData={handleClearData}  />
+
+      {/* Add board input and button */}
+      <div className="mt-4">
+        <input
+          type="text"
+          placeholder="Enter Board Name"
+          value={boardName}
+          onChange={(e) => setBoardName(e.target.value)}
+          className="border border-gray-300 rounded px-3 py-1 mr-2"
+        />
+        <button onClick={handleAddBoard} className="bg-blue-500 text-white px-4 py-2 rounded mr-2">Add Board</button>
+      </div>
+
+      {/* Display the list of boards */}
+      <div className="mt-4">
+        <h2 className="text-lg font-semibold mb-2">Boards:</h2>
+        <ul>
+          {data.map((board, index) => (
+            <li key={index} className="mb-2" style={{ backgroundImage: board.backgroundImage }}>
+              {board.name}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
 
-const ChildComponent = ({ data, updateData }) => {
-  const handleClick = () => {
-    updateData("New Data");
-  };
-
-  return (
-    <div className="border border-gray-300 p-4 rounded-md mb-4">
-      <h2 className="text-lg font-semibold mb-2">Child Component</h2>
-      <p>Data from parent: {data}</p>
-      <button
-        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-        onClick={handleClick}
-      >
-        Update Data
-      </button>
-    </div>
-  );
-};
-
-export default ParentComponent;
-
-
-
+export default BoardManager;
 
 
 
